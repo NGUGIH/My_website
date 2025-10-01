@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+<div class="blog-card">
+<ul>
+    <% blogPosts.forEach(post => { %>
+        <li class="blog-list">
+            <h2 class="blog-title"><%= post.title %> </h2>
+            <p class="blog-body"><%= post.content %> </p>
+            <div class="links">
+                <a class="edit" href="/edit/<%= post.id %>">Edit</a>
+                <form action="/delete/<%= post.id %>" method="post">
+                    <button class="delete" type="submit">Delete</button>
+                </form>
+            </div>
+            
+
+        </li>
+   <% }); %>
+</ul>
+<a class="new" href="/new">Add new post</a>
+</div>
+<%- include("partials/footer.ejs") %>
